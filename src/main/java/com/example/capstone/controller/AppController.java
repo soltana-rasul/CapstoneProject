@@ -1,12 +1,18 @@
 package com.example.capstone.controller;
 
+import com.example.capstone.model.Product;
 import com.example.capstone.model.User;
+import com.example.capstone.repository.ProdRepo;
+import com.example.capstone.service.ProductService;
 import com.example.capstone.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Spliterator;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @RestController
 @AutoConfiguration
@@ -15,6 +21,16 @@ public class AppController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    ProdRepo prodRepo;
+
+    @ResponseBody
+    @GetMapping("/user/view-catalog")
+    public List<Product> getAll() {
+        Spliterator<Product> products = prodRepo.findAll().spliterator();
+        return StreamSupport.stream(products, false).collect(Collectors.toList());
+    }
 
     @GetMapping("")
     public String viewHomePage(){

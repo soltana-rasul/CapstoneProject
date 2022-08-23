@@ -1,22 +1,22 @@
 package com.example.capstone.controller;
 
 import com.example.capstone.model.Product;
-import com.example.capstone.model.User;
 import com.example.capstone.repository.ProdRepo;
 import com.example.capstone.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Spliterator;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @RestController
 @AutoConfiguration
-@RequestMapping(value= "/apip")
+@RequestMapping(value= "/product")
 public class AdminController {
-
-    @Autowired
-    ProdRepo prodRepo;
 
     @Autowired
     ProductService productService;

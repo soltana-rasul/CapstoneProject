@@ -1,9 +1,7 @@
 package com.example.capstone.repository;
 
 import com.example.capstone.model.Product;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
 
-@Repository
-public interface ProdRepo extends JpaRepository<Product, Integer> {
+public interface ProdRepo extends CrudRepository<Product, String> {
 }

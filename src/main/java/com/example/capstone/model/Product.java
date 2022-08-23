@@ -9,6 +9,7 @@ public class Product implements Serializable {
 
     @Id @Column(name = "productId", nullable = false, unique = true)
     Long productId;
+
     @Column(name = "product")
     private String productName;
     @Column(name = "description")

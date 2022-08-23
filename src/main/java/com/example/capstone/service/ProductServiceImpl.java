@@ -15,12 +15,16 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductRepository productRepository;
     @Override
-    public List<Product> getAllProduct() { return (List<Product>) productRepository.findAll();}
+    public List<Product> getAllProduct() {
+        return (List<Product>) productRepository.findAll();}
     @Override
-    public Product getByProductId(Long productId) {return productRepository.findById(productId).get();}
+    public Product getByProductId(Long productId) {
+        return productRepository.findById(productId).get();}
     @Override
-    public void saveOrUpdate(Product product) {productRepository.save(product);}
+    public void saveOrUpdate(Product product) {
+        productRepository.save(product);}
     @Override
-    public void deleteProduct(Long productId) {productRepository.deleteById(productId);}
+    public void deleteProduct(Long productId) {
+        productRepository.deleteById(productId);}
 
 }
